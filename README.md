@@ -1,2 +1,3 @@
 # InternshipIEEE
-This is the folder for the internship
+Day 1 - Introductory session
+Day 2 - Portfolio submission
