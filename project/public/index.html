@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Motion Gesture Classifier</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <h1>Motion Gesture Classifier</h1>
+
+        <p>
+            Real-Time Edge Impulse WebAssembly Gesture Recognition
+        </p>
+
+    </header>
+
+    <section class="controls">
+
+        <button id="toggleSensorButton">
+            Start Sensor
+        </button>
+
+    </section>
+
+    <section class="status-grid">
+
+        <div class="card">
+
+            <h3>Sensor Status</h3>
+
+            <span id="sensorStatus" class="badge offline">
+                Stopped
+            </span>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Model Status</h3>
+
+            <span id="modelStatus" class="badge offline">
+                Not Loaded
+            </span>
+
+        </div>
+
+    </section>
+
+    <section class="prediction-card">
+
+        <h2>Current Gesture</h2>
+
+        <div id="prediction" class="prediction">
+
+            Waiting...
+
+        </div>
+
+        <div class="confidence">
+
+            Confidence
+
+            <span id="confidence">
+                0%
+            </span>
+
+        </div>
+
+    </section>
+
+    <section class="sensor-values">
+
+        <div class="card">
+
+            <h3>X</h3>
+
+            <p id="sensorX">0.00</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Y</h3>
+
+            <p id="sensorY">0.00</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Z</h3>
+
+            <p id="sensorZ">0.00</p>
+
+        </div>
+
+    </section>
+
+    <section class="probabilities">
+
+        <h2>Gesture Probabilities</h2>
+
+        <div class="probability">
+
+            <div class="label">
+
+                <span>Idle</span>
+
+                <span id="idlePercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div id="idleBar" class="fill idle"></div>
+
+            </div>
+
+        </div>
+
+        <div class="probability">
+
+            <div class="label">
+
+                <span>Left Right</span>
+
+                <span id="leftRightPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div id="leftRightBar" class="fill left"></div>
+
+            </div>
+
+        </div>
+
+        <div class="probability">
+
+            <div class="label">
+
+                <span>Up Down</span>
+
+                <span id="upDownPercent">
+                    0%
+                </span>
+
+            </div>
+
+            <div class="progress">
+
+                <div id="upDownBar" class="fill up"></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="waveform-card">
+
+        <h2>Live Accelerometer</h2>
+
+        <canvas id="waveform" width="900" height="250"></canvas>
+
+    </section>
+
+    <footer>
+
+        <p>
+
+            Running Edge Impulse WebAssembly locally in your browser
+
+        </p>
+
+    </footer>
+
+</div>
+
+<!-- Edge Impulse runtime -->
+<script src="edge-impulse-standalone.js"></script>
+<script src="run-impulse.js"></script>
+
+<!-- Your application -->
+<script src="app.js"></script>
+
+</body>
+</html>
